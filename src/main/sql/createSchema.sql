@@ -1,13 +1,6 @@
-drop table if exists students;
-drop table if exists courses;
+drop table if exists user;
 
 create table courses (
-  cid serial primary key,
+  email varchar(80) primary key,
   name varchar(80)
-);
-
-create table students (
-  number int primary key,
-  name varchar(80),
-  course int references courses(cid)
 );

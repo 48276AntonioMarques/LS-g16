@@ -70,23 +70,3 @@ fun logRequest(request: Request) {
     )
 }
 
-fun main() {
-    val studentRoutes = routes(
-        "students" bind GET to ::getStudents,
-        "students/{number}" bind GET to ::getStudent,
-        "students" bind POST to ::postStudent
-    )
-
-    val app = routes(
-        studentRoutes,
-        "date" bind GET to ::getDate
-    )
-
-    val jettyServer = app.asServer(Jetty(9000)).start()
-    logger.info("server started listening")
-
-    readln()
-    jettyServer.stop()
-
-    logger.info("leaving Main")
-}
